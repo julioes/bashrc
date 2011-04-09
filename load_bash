@@ -1,0 +1,20 @@
+#! /bin/bash
+
+bash_load_root=${bash_load_root:-~/.bash}
+machine=${HOSTNAME:-$(hostname -s)}
+
+loadtypes="variables profile functions aliases"
+
+for type in ${loadtypes}; do
+  file="bash_${type}.bash"
+  [ -f ${bash_load_root}/${file} ] && . ${bash_load_root}/${file}
+  [ -f ${bash_load_root}/${machine}/${file} ] && . ${bash_load_root}/${machine}/${file}
+done
+
+for file in ${bash_load_root}/completion/*.bash; do
+  if [ -r "$file" ]; then
+    . ${file}
+  fi
+done
+
+PS1='\h:\W\$ '
