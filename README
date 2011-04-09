@@ -1,0 +1,14 @@
+BASH Profile
+
+Installation:
+
+    git clone git://github.com/julioes/bashrc.git ~/.bash
+
+Source load_bash:
+
+    Add "source ~/.bash/load_bash" to ~/.bash_profile.
+
+Concept:
+
+  http://marcovaltas.com/?p=111
+
